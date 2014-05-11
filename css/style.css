@@ -1,0 +1,225 @@
+html{
+	background-image:url(../img/car_port.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+
+}
+
+.container{
+	margin: 0 auto;
+	width: 800px;
+}
+
+/*--------------------- 
+  3D slider border
+  ---------------------*/
+.content {
+	border-style: solid;
+    border-color: #fff #ccc #999 #eee;
+    background: #c1c1c1;
+    background: linear-gradient(#f5f5f5, #c1c1c1);
+	width: 800px;
+	margin:20px auto;
+	padding:15px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-top-left-radius:2em;
+	border-top-right-radius:2em; 																	      	   				border-bottom-right-radius:2em; 
+	border-bottom-left-radius:2em;}
+
+/*-----------------------
+  customization of slider
+ -------------------------*/
+
+#slider {
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	-o-border-radius:3px;
+	-ms-border-radius:3px;
+	-khtml-border-radius:3px;
+	border-radius:3px;
+	-moz-box-sizing:content-box;
+	-webkit-box-sizing:content-box;
+	-ms-box-sizing:content-box;
+	box-sizing:content-box;
+	padding:5px;
+}
+#slider .pagination { 
+    list-style:none outside none;
+	-moz-box-sizing:content-box;
+	-webkit-box-sizing:content-box;
+	-ms-box-sizing:content-box;
+	box-sizing:content-box;
+    padding:15px !important;
+}
+#slider .pagination li {
+    cursor:pointer; 
+    display:inline-block;
+    margin-left:0;
+    background-color:#888;
+    border-radius:10px 10px 10px 10px;
+	-moz-border-radius:10px 10px 10px 10px;
+	-webkit-border-radius:10px 10px 10px 10px;
+	-o-border-radius:10px 10px 10px 10px;
+	-ms-border-radius:10px 10px 10px 10px;
+	-khtml-border-radius:10px 10px 10px 10px;
+    height:8px;
+    text-indent:10000px;
+    width:8px;
+}
+#slider .pagination li.current {
+	background:rgba(255, 255, 255, 0.2)
+}
+
+#category { 
+	width: 160px; 
+	margin-right: 80px; 
+	padding: 5px; 
+	text-align: center; 
+    background: rgba(0,0,0,.2);
+    border-radius: .5em;    
+    box-shadow: 0 1px 0 rgba(255,255,255,.2), 0 2px 1px rgba(0,0,0,.8) inset; 
+}
+
+#category:hover { 
+	background: #696960; 
+}
+
+#category a { 
+	color: #000; 
+	font-size: 14px; 
+	font-weight: 700; 
+}
+
+#category:hover.category h2 a { 
+	color: #fff; 
+	font-size: 14px; 
+	font-weight: 700; 
+}
+
+.clear{
+	clear:both;
+}
+
+/*------------------------
+  Canvas for form details
+ ------------------------*/
+#Registration_form {
+	border-style: solid;
+    border-color: #fff #ccc #999 #eee;
+   	background: #c1c1c1;
+    background: linear-gradient(#f5f5f5, #c1c1c1);
+	width:800px;
+	margin:20px auto;
+	padding:15px;
+	border-bottom-right-radius:2em;
+	border-top-left-radius:2em;
+	border-top-right-radius:2em;
+	border-bottom-left-radius:2em;
+	padding:25px;	
+}
+
+h1 { 
+	line-height:1.2em; 
+	padding-left: 70px; 
+	font-size: 30px; 
+	color: #ed7700; 
+	height: 50px;  
+	font-family: 'YanoneKaffeesatzRegular'; 
+}
+p { 
+	line-height:1.2em; 
+	margin-bottom:24px; 
+}
+
+
+label { 
+	cursor:pointer;
+	margin:4px 0;
+	color:#ed7700;
+	display:block;
+	font-weight:800;	
+}
+
+input { 
+	display:block;
+	width:90%;
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	background-color:#f4f4f4;
+	color:#000;
+	border:1px solid #5f5f5f;
+	padding:10px;
+	margin-bottom:25px;
+	font-size:14px;
+}
+
+.sendButton {
+	float:left;
+	cursor:pointer;
+	-moz-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffc477), color-stop(1, #fb9e25) );
+	background:-moz-linear-gradient( center top, #ffc477 5%, #fb9e25 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#fb9e25');
+	background-color:#ffc477;
+	-webkit-border-radius:16px;
+	-moz-border-radius:16px;
+	border-radius:16px;
+	border:1px solid #eeb44f;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	width:25%;
+	font-weight:bold;
+	text-shadow:1px 1px 0px #cc9f52;
+}
+.sendButton:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
+	background:-moz-linear-gradient( center top, #fb9e25 5%, #ffc477 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endColorstr='#ffc477');
+	background-color:#fb9e25;
+}
+.declineButton {
+	float:right;
+	cursor:pointer;
+	-moz-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffc477), color-stop(1, #fb9e25) );
+	background:-moz-linear-gradient( center top, #ffc477 5%, #fb9e25 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#fb9e25');
+	background-color:#ffc477;
+	-webkit-border-radius:16px;
+	-moz-border-radius:16px;
+	border-radius:16px;
+	border:1px solid #eeb44f;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	width:25%;
+	font-weight:bold;
+	text-shadow:1px 1px 0px #cc9f52;
+}
+.declineButton:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
+	background:-moz-linear-gradient( center top, #fb9e25 5%, #ffc477 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endColorstr='#ffc477');
+	background-color:#fb9e25;
+}
+.login{
+	position:relative;
+	left: 50px;
+	height: 20px;
+	width: 440px;
+	padding: 17px 30px 20px 30px;
+	font-size: 16px	;
+	text-align: left;
+	margin-top:50px;
+}
+.vehicle_details{
+	margin-top: 10px;
+}
