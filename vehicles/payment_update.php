@@ -3,7 +3,7 @@
 	include '../configuration/config.php';
 
 	session_start();
-	$end_price = $_POST['end_price'];
+	$payment = $_POST['payment'];
 	$bidder_num = $_POST['bidder_num'];
 	$chassis_num = $_SESSION['chassis'];
 
@@ -21,17 +21,15 @@
 
 
 
-		$pricing = $mysqli->query("UPDATE price SET end_price = '$end_price' WHERE chassis_num = '$chassis_num'");
+		$pricing = $mysqli->query("UPDATE successfull_bids SET payment = '$payment' WHERE chassis_num = '$chassis_num'");
 		if($pricing== false)	
 			throw new Exception('Error: ' .$mysqli->error);
 
-		$successful = $mysqli->query("INSERT INTO successfull_bids(chassis_num,user_id) VALUES ('$chassis_num','$bidder_num')");
-		if($pricing== false)	
-			throw new Exception('Error: ' .$mysqli->error);
+		
 	
 		
 		$mysqli->commit();
-		header("location: http://".$_SERVER['SERVER_NAME'].'/auction/vehicles/vehicle_details2.php?bidder_num='.$bidder_num.'');
+		header("location: http://".$_SERVER['SERVER_NAME'].'/auction/vehicles/vehicles.php');
 	}catch(Exception $e)
 	{
 		//Rollback the transaction

@@ -30,16 +30,16 @@
 
 		//setup the user account
 		$userSet = $mysqli->query("INSERT INTO user(user_id,email,password, type ) VALUES ('$user_id','$user_email','$user_password','participant');");
-		if($resultSet === false)	
+		if($userSet === false)	
 			throw new Exception('Error: ' .$mysqli->error);
 
 
-		$participantSet = $mysqli->query("INSERT INTO participant_info(user_id,first_name,middle_name,last_name,Gender,id_type,id_num,trn,dob,phone_num) VALUES ('$user_id','$user_fname','$user_mname','$user_lname','Gender','$id_type','$id_num','$trn','$user_dob','$phone_num');");
-		if($resultSet === false)	
+		$participantinfo = $mysqli->query("INSERT INTO participant_info(user_id,first_name,middle_name,last_name,Gender,id_type,id_num,trn,dob,phone_num) VALUES ('$user_id','$user_fname','$user_mname','$user_lname','$gender','$id_type','$id_num','$trn','$user_dob','$phone_num');");
+		if($participantinfo === false)	
 			throw new Exception('Error: ' .$mysqli->error);
 	
-		$participantSet = $mysqli->query("INSERT INTO participant_address(user_id,address,parish) VALUES ('$user_id','$address','$parish');");
-		if($resultSet === false)	
+		$participantaddress = $mysqli->query("INSERT INTO participant_address(user_id,address,parish) VALUES ('$user_id','$address','$parish');");
+		if($participantaddress === false)	
 			throw new Exception('Error: ' .$mysqli->error);
 
 		$_SESSION['user'] = $user_id;
@@ -50,7 +50,7 @@
 	{
 		//Rollback the transaction
 		$mysqli->rollback();
-
+		
 		
 		header("Location: http://".$_SERVER['SERVER_NAME']."/auction/");
 		

@@ -26,11 +26,10 @@
                     <a class="item" href="http://<?php echo SERVER;?>/auction/registration/registration.php">Registration</a>
                     <a class="item" href="http://<?php echo SERVER;?>/auction/logout.php">logout</a></li>
                     <a class="item" href="http://<?php echo SERVER;?>/auction/vehicles/vehicles.php">Vehicles</a>
-                    <a class="item" href="http://<?php echo SERVER;?>/auction/vehicles/admin.php">Admin Panel</a>
                     <a class="item" href="#">ONE</a></li>
                     <a class="item" href="#">ABOUT US</a></li>
                  <?php endif; ?>
-            </div><!-- menu of ending--> 
+            </div><!-- menu of ending-->  
                 <div class="content">
                 	     		
                     <form class="ui error form " action="store_vehicles.php" method="post" enctype="multipart/form-data">

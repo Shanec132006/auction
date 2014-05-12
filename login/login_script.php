@@ -22,7 +22,16 @@ if(count($results)!=0)
 		session_regenerate_id();
 		$_SESSION['user'] = $results['user_id'];
 		session_write_close();
-		header("location: http://".$_SERVER['SERVER_NAME'].'/auction/vehicles/add_vehicles.php');
+		if ($results['type']=='admin') {
+			header("location: http://".$_SERVER['SERVER_NAME'].'/auction/admin/admin_page.php');
+		}
+		if ($results['type']=='auctioneer') {
+			header("location: http://".$_SERVER['SERVER_NAME'].'/auction/vehicles/vehicles.php');
+		}
+		if ($results['type']=='cashier') {
+			header("location: http://".$_SERVER['SERVER_NAME'].'/auction/vehicles/vehicles.php');
+		}
+		
 		exit();
 	}
 	else

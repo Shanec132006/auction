@@ -24,24 +24,23 @@
     <body>
     	<div class="container">
 	    	<div class="ui inverted menu">
-	        	<?php if (!isset($_SESSION['user'])): ?>
-	            	<a class="item" href="http://<?php echo SERVER;?>/auction/">HOME</a></li>
-	                <a class="item" href="http://<?php echo SERVER;?>/auction/registration/registration.php">Registration</a>
-	                <a class="item" href="http://<?php echo SERVER;?>/auction/login/login.php">Login</a></li>
-	                <a class="item" href="http://<?php echo SERVER;?>/auction/vehicles/vehicles.php">Vehicles</a>
-	                <a class="item" href="#">ONE</a></li>
-	                <a class="item" href="#">ABOUT US</a></li>
-	            
-	        	<?php else: ?>
-	        		<a class="item" href="http://<?php echo SERVER;?>/auction/">HOME</a></li>
-	                <a class="item" href="http://<?php echo SERVER;?>/auction/registration/registration.php">Registration</a>
-	                <a class="item" href="http://<?php echo SERVER;?>/auction/logout.php">logout</a></li>
-	                <a class="item" href="http://<?php echo SERVER;?>/auction/vehicles/vehicles.php">Vehicles</a>
-	                <a class="item" href="http://<?php echo SERVER;?>/auction/vehicles/admin.php">Admin Panel</a>
-	                <a class="item" href="#">ONE</a></li>
-	                <a class="item" href="#">ABOUT US</a></li>
-	             <?php endif; ?>
-	    	</div><!-- menu of ending--> 
+                <?php if (!isset($_SESSION['user'])): ?>
+                    <a class="item" href="http://<?php echo SERVER;?>/auction/">HOME</a></li>
+                    <a class="item" href="http://<?php echo SERVER;?>/auction/registration/registration.php">Registration</a>
+                    <a class="item" href="http://<?php echo SERVER;?>/auction/login/login.php">Login</a></li>
+                    <a class="item" href="http://<?php echo SERVER;?>/auction/vehicles/vehicles.php">Vehicles</a>
+                    <a class="item" href="#">ONE</a></li>
+                    <a class="item" href="#">ABOUT US</a></li>
+                
+                <?php else: ?>
+                    <a class="item" href="http://<?php echo SERVER;?>/auction/">HOME</a></li>
+                    <a class="item" href="http://<?php echo SERVER;?>/auction/registration/registration.php">Registration</a>
+                    <a class="item" href="http://<?php echo SERVER;?>/auction/logout.php">logout</a></li>
+                    <a class="item" href="http://<?php echo SERVER;?>/auction/vehicles/vehicles.php">Vehicles</a>
+                    <a class="item" href="#">ONE</a></li>
+                    <a class="item" href="#">ABOUT US</a></li>
+                 <?php endif; ?>
+            </div><!-- menu of ending-->  
 	              
 	        <div class="content">
 	        <h1>Vehicle Details</h1>
@@ -180,6 +179,18 @@
 							<div>
 							  <form action="upload.php" method="post" enctype="multipart/form-data">
 							    <input type="file" name="file">
+							    <input type="submit">
+							</form>
+
+							</div>
+						<?php endif ?>
+
+						<?php if ($user_type[0]['type'] == 'cashier'): ?>
+							<div>
+							  <form action="payment_update.php" method="post" enctype="multipart/form-data">
+							  	<p>Note: Minimum Payment Must be 10% of the Ending Price</p>
+							  	<LABEL>Enter Payment</LABEL>
+							    <input type="text" name="payment">
 							    <input type="submit">
 							</form>
 

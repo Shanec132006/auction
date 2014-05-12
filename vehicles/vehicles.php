@@ -26,7 +26,6 @@
 	                <a class="item" href="http://<?php echo SERVER;?>/auction/registration/registration.php">Registration</a>
 	                <a class="item" href="http://<?php echo SERVER;?>/auction/logout.php">logout</a></li>
 	                <a class="item" href="http://<?php echo SERVER;?>/auction/vehicles/vehicles.php">Vehicles</a>
-	                <a class="item" href="http://<?php echo SERVER;?>/auction/vehicles/admin.php">Admin Panel</a>
 	                <a class="item" href="#">ONE</a></li>
 	                <a class="item" href="#">ABOUT US</a></li>
 	             <?php endif; ?>
@@ -35,7 +34,9 @@
 	        <div class="content">
 	        	<?php
 	        		$cars = get_cars();
-
+	        		if (isset($_SESSION['user'])):
+	        			$user_type = get_type($_SESSION['user']);
+	        		endif;
 	        	?>
 	        	<table class="ui basic table">
 				  <thead>
@@ -55,8 +56,16 @@
 	        	<?php
 	        		}
 	        	?>
-	         
+	         	</tbody>
+	         </table>
+	         <?php if (isset($_SESSION['user'])): ?>
+	        	<?php if ($user_type[0]['type']=='admin') {
+	        		?>
+	        		<a class="ui green button" href="add_vehicles.php">Add New Vehicle</a>
+	        <?php	}?>
+	    	<?php endif;?>
 	        </div><!-- Ending of Surface-->
+	        
 		</div>
 	<script src="js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/flux.min.js" type="text/javascript" charset="utf-8"></script>
