@@ -51,7 +51,7 @@
 					 	<div class="four wide column">
 					    	<div  id="category">
 					    		<img src="img/car1.png" alt="" width="70px"/>
-								<h2><a href="#">Motor Vehicles</a></h2>
+								<h2><a href="http://<?php echo SERVER;?>/auction/vehicles/vehicles.php">Motor Vehicles</a></h2>
 							</div>
 					  	</div>
 					  	<div class="four wide column">

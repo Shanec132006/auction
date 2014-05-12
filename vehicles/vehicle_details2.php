@@ -47,14 +47,18 @@
 	        <h1>Vehicle Details</h1>
 	        	<?php
 	        		
-	        		$chassis = $_GET["id"];
-	        		$_SESSION['chassis'] = $chassis;
+	        		$chassis = $_SESSION['chassis'];
+	        		
 
 	        		$cars = get_details($chassis);
 	        		$images = get_images($chassis);
 	        		$price = get_price($chassis);
 	        		if (isset($_SESSION['user'])):
+	        			$bidder_num = $_GET['bidder_num'];
+
 	        			$user_type = get_type($_SESSION['user']);
+	        			$user_info = get_bidderInfo($bidder_num);
+	      
 	        		endif;
 	        		
 
@@ -151,8 +155,6 @@
 							  <form action="price_update.php" method="post" enctype="multipart/form-data">
 							  	<label>End Price: </label>
 							    <input type="text" name="end_price">
-							    <label>Bidder #:</label>
-							    <input type="text" name="bidder_num">
 							    <input type="submit">
 							</form>
 
@@ -191,10 +193,39 @@
 	     	<?php if (isset($_SESSION['user'])): ?>
 							<?php if ($user_type[0]['type'] == 'auctioneer'): ?>
 							<div>
-							  <form action="vehicle_details2.php" method="GET" enctype="multipart/form-data">
-							    <input type="text" name="bidder_num">
-							    <input type="submit">
-							</form>
+							  <h2>Bidder Info</h2>
+								<table class="ui table segment">
+					 	<tbody>
+						    <tr>
+						      <td class="active">Name: </td>
+						      <td ><?php echo $user_info[0]['first_name']." ".$user_info[0]['middle_name']." ".$user_info[0]['last_name']; ?></td>
+						      
+						    </tr>
+						    <tr>
+						      <td class="active">Address: </td>
+						      <td><?php echo $user_info[0]['address']." ".$user_info[0]['parish'];?></td>
+						      
+						    </tr>
+
+						    <tr>
+						      <td class="active">ID Type: </td>
+						      <td><?php echo $user_info[0]['id_type'];?></td>
+						      
+						    </tr>
+
+						     <tr>
+						      <td class="active">ID #: </td>
+						      <td><?php echo $user_info[0]['id_num'];?></td>
+						      
+						    </tr>
+
+						     <tr>
+						      <td class="active">Bidder ID: </td>
+						      <td><?php echo $bidder_num;?></td>						      
+						    </tr>				     
+						 
+						  </tbody>
+						</table>
 
 							</div>
 						<?php endif ?>

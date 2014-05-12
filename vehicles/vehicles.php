@@ -2,6 +2,7 @@
 <html>
 	<?php
 		include 'get_vehicles.php';
+		session_start();
 	?>
     <head>
         <meta charset=utf-8 /> 
