@@ -13,16 +13,27 @@
 
 	<body>
         <div class="container">
-            <div class="ui inverted menu">
-                
-                    <a class="item" href="http://<?php echo SERVER;?>/auction/">HOME</a></li>
-                    <a class="item" href="http://<?php echo SERVER;?>/auction/registration/registration.php">Registration</a>
-                    <a class="item" href="http://<?php echo SERVER;?>/auction/login/login.php">Login</a></li>
-                    <a class="item" href="http://<?php echo SERVER;?>/auction/vehicles/vehicles.php">Vehicles</a>
-                    <a class="item" href="#">ONE</a></li>
-                    <a class="item" href="#">ABOUT US</a></li>
-                
-            </div><!-- menu of ending-->  
+           <nav class="menu">
+                <?php if (!isset($_SESSION['user'])): ?>
+                    <ul>
+                        <li><a href="http://<?php echo SERVER;?>/auction/">HOME</a></li>
+                        <li><a href="http://<?php echo SERVER;?>/auction/registration/registration.php">Registration</a></li>
+                        <li><a href="http://<?php echo SERVER;?>/auction/login/login.php">Login</a></li>
+                        <li><a class="item" href="http://<?php echo SERVER;?>/auction/vehicles/vehicles.php">Vehicles</a></li>
+                        <li><a href="#">ONE</a></li>
+                        <li><a href="#">ABOUT US</a></li>
+                    </ul>
+                    <?php else: ?>
+                        <ul>
+                            <li><a class="item" href="http://<?php echo SERVER;?>/auction/">HOME</a></li>
+                            <li><a class="item" href="http://<?php echo SERVER;?>/auction/registration/registration.php">Registration</a></li>
+                            <li><a class="item" href="http://<?php echo SERVER;?>/auction/logout.php">logout</a></li>
+                            <li><a class="item" href="http://<?php echo SERVER;?>/auction/vehicles/vehicles.php">Vehicles</a></li>
+                            <li><a class="item" href="#">ONE</a></li>
+                            <li><a class="item" href="#">ABOUT US</a></li>
+                        </ul>
+                 <?php endif; ?>
+        </nav><!-- menu of ending--> 
             <div class="content">
               
                 <p>Deposit Has Been Made</p>

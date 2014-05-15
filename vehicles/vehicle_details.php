@@ -23,24 +23,27 @@
     </head>
     <body>
     	<div class="container">
-	    	<div class="ui inverted menu">
-                <?php if (!isset($_SESSION['user'])): ?>
-                    <a class="item" href="http://<?php echo SERVER;?>/auction/">HOME</a></li>
-                    <a class="item" href="http://<?php echo SERVER;?>/auction/registration/registration.php">Registration</a>
-                    <a class="item" href="http://<?php echo SERVER;?>/auction/login/login.php">Login</a></li>
-                    <a class="item" href="http://<?php echo SERVER;?>/auction/vehicles/vehicles.php">Vehicles</a>
-                    <a class="item" href="#">ONE</a></li>
-                    <a class="item" href="#">ABOUT US</a></li>
-                
-                <?php else: ?>
-                    <a class="item" href="http://<?php echo SERVER;?>/auction/">HOME</a></li>
-                    <a class="item" href="http://<?php echo SERVER;?>/auction/registration/registration.php">Registration</a>
-                    <a class="item" href="http://<?php echo SERVER;?>/auction/logout.php">logout</a></li>
-                    <a class="item" href="http://<?php echo SERVER;?>/auction/vehicles/vehicles.php">Vehicles</a>
-                    <a class="item" href="#">ONE</a></li>
-                    <a class="item" href="#">ABOUT US</a></li>
+	    	<nav class="menu">
+    			<?php if (!isset($_SESSION['user'])): ?>
+		        	<ul>
+		            	<li><a href="http://<?php echo SERVER;?>/auction/">HOME</a></li>
+		                <li><a href="http://<?php echo SERVER;?>/auction/registration/registration.php">Registration</a></li>
+		                <li><a href="http://<?php echo SERVER;?>/auction/login/login.php">Login</a></li>
+		                <li><a class="item" href="http://<?php echo SERVER;?>/auction/vehicles/vehicles.php">Vehicles</a></li>
+		                <li><a href="#">ONE</a></li>
+		                <li><a href="#">ABOUT US</a></li>
+		        	</ul>
+		        	<?php else: ?>
+		        		<ul>
+		                    <li><a class="item" href="http://<?php echo SERVER;?>/auction/">HOME</a></li>
+		                    <li><a class="item" href="http://<?php echo SERVER;?>/auction/registration/registration.php">Registration</a></li>
+		                    <li><a class="item" href="http://<?php echo SERVER;?>/auction/logout.php">logout</a></li>
+		                    <li><a class="item" href="http://<?php echo SERVER;?>/auction/vehicles/vehicles.php">Vehicles</a></li>
+		                    <li><a class="item" href="#">ONE</a></li>
+		                    <li><a class="item" href="#">ABOUT US</a></li>
+		                </ul>
                  <?php endif; ?>
-            </div><!-- menu of ending-->  
+    	</nav><!-- menu of ending--> 
 	              
 	        <div class="content">
 	        <h1>Vehicle Details</h1>
@@ -127,19 +130,22 @@
 						     <tr>
 						      <td class="active">Engine No: </td>
 						      <td><?php echo $cars[0]['eng_num'];?></td>
-						      
-						    </tr>
-						     <tr>
-						      <td class="active">Starting Price: </td>
-						      <td><?php echo $price[0]['starting_price'];?></td>
-						      
-						    </tr>
-						    <tr>
-						      <td class="active">End Price: </td>
-						      <td><?php echo $price[0]['end_price'];?></td>
-						      
-						    </tr>
-						 
+						      <?php if (isset($_SESSION['user'])): ?>
+									<?php if ($user_type[0]['type'] == 'auctioneer'||$user_type[0]['type'] == 'cashier'||$user_type[0]['type'] == 'admin'): ?>
+									    </tr>
+									     <tr>
+									      <td class="active">Starting Price: </td>
+									      <td><?php echo $price[0]['starting_price'];?></td>
+									      
+									    </tr>
+									    <tr>
+									      <td class="active">End Price: </td>
+									      <td><?php echo $price[0]['end_price'];?></td>
+									      
+									    </tr>
+							 		<?php endif ?>
+							<?php endif ?>
+	        	
 						  </tbody>
 						</table>
 

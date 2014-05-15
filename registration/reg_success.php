@@ -13,16 +13,18 @@
 
 	<body>
         <div class="container">
-            <div class="ui inverted menu">
+           <nav class="menu">
                 
-                    <a class="item" href="http://<?php echo SERVER;?>/auction/">HOME</a></li>
-                    <a class="item" href="http://<?php echo SERVER;?>/auction/registration/registration.php">Registration</a>
-                    <a class="item" href="http://<?php echo SERVER;?>/auction/login/login.php">Login</a></li>
-                    <a class="item" href="http://<?php echo SERVER;?>/auction/vehicles/vehicles.php">Vehicles</a>
-                    <a class="item" href="#">ONE</a></li>
-                    <a class="item" href="#">ABOUT US</a></li>
-                
-            </div><!-- menu of ending-->  
+                    <ul>
+                        <li><a href="http://<?php echo SERVER;?>/auction/">HOME</a></li>
+                        <li><a href="http://<?php echo SERVER;?>/auction/registration/registration.php">Registration</a></li>
+                        <li><a href="http://<?php echo SERVER;?>/auction/login/login.php">Login</a></li>
+                        <li><a class="item" href="http://<?php echo SERVER;?>/auction/vehicles/vehicles.php">Vehicles</a></li>
+                        <li><a href="#">ONE</a></li>
+                        <li><a href="#">ABOUT US</a></li>
+                    </ul>
+                    
+        </nav><!-- menu of ending--> 
             <div class="content">
                 <?php
 
