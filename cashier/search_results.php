@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<?php
-		include 'get_vehicles.php';
+		include '../vehicles/get_vehicles.php';
+		 include '../configuration/site-header.php';
+        
 		session_start();
 	?>
     <head>
@@ -45,19 +47,19 @@
 	        <div class="content">
 	        <h1>Vehicle Details</h1>
 	        	<?php
-	        		
-	        		$chassis = $_SESSION['chassis'];
-	        		
+	        		$bidder_num = $_GET['bidder_num'];
+	        		$all_data = get_bidderPayment($bidder_num);
+	        		var_dump($all_data);
+	        		$chassis = $all_data[0]['chassis_num'];
+	        		$_SESSION['chassis'] = $chassis;
+	        		$_SESSION['bidder_num'] = $bidder_num;
 
 	        		$cars = get_details($chassis);
-	        		$images = get_images($chassis);
+	        		 $images = get_images($chassis);
 	        		$price = get_price($chassis);
 	        		if (isset($_SESSION['user'])):
-	        			$bidder_num = $_GET['bidder_num'];
-
 	        			$user_type = get_type($_SESSION['user']);
 	        			$user_info = get_bidderInfo($bidder_num);
-	      
 	        		endif;
 	        		
 
@@ -150,14 +152,16 @@
 	        		</div>
 	        		<?php if (isset($_SESSION['user'])): ?>
 							<?php if ($user_type[0]['type'] == 'auctioneer'): ?>
-							<!-- <div>
+							<div>
 							  <form action="price_update.php" method="post" enctype="multipart/form-data">
 							  	<label>End Price: </label>
 							    <input type="text" name="end_price">
+							    <label>Bidder #:</label>
+							    <input type="text" name="bidder_num">
 							    <input type="submit">
 							</form>
 
-							</div> -->
+							</div>
 						<?php endif ?>
 					<?php endif ?>
 	        	
@@ -176,22 +180,7 @@
 								?>
 							</ul>
 						</div>
-						<?php if (isset($_SESSION['user'])): ?>
-							<?php if ($user_type[0]['type'] == 'admin'): ?>
-							<div>
-							  <form action="upload.php" method="post" enctype="multipart/form-data">
-							    <input type="file" name="file">
-							    <input type="submit">
-							</form>
-
-							</div>
-						<?php endif ?>
-					<?php endif ?>
-	        	</div>
-	        </div>
-	     	<?php if (isset($_SESSION['user'])): ?>
-							<?php if ($user_type[0]['type'] == 'auctioneer'): ?>
-							<div>
+						<div>
 							  <h2>Bidder Info</h2>
 								<table class="ui table segment">
 					 	<tbody>
@@ -227,8 +216,22 @@
 						</table>
 
 							</div>
+
+						<?php if ($user_type[0]['type'] == 'cashier'): ?>
+							<div>
+							  <form action="payment_update.php" method="post" enctype="multipart/form-data">
+							  	<p>Note: Minimum Payment Must be 10% of the Ending Price</p>
+							  	<LABEL>Enter Payment</LABEL>
+							    <input type="text" name="payment">
+							    <input type="submit">
+							</form>
+
+							</div>
 						<?php endif ?>
-					<?php endif ?>
+					
+	        	</div>
+	        </div>
+	     	
 	        </div><!-- Ending of Surface-->
 		</div>
 	<script src="js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>

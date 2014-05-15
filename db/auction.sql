@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 11, 2014 at 11:08 PM
+-- Generation Time: May 13, 2014 at 02:01 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -38,12 +38,10 @@ CREATE TABLE IF NOT EXISTS `participant_address` (
 --
 
 INSERT INTO `participant_address` (`user_id`, `address`, `parish`) VALUES
-('', '', ''),
-('14323', 'esdgmkspw', 'QPADGMS'),
-('21718', '12qwrs', '14qwfas'),
-('28825', 'sfagss', '1314rw'),
-('855', 'sfagss', '1314rw'),
-('913', '14qw32ewsf', 'pomsd;lfm');
+('17566', '49 Sirgarny Drive Kingston 2', 'Kingston'),
+('28210', '9 East Guango Ave Kingston 12', 'Kingston'),
+('31833', '39 Rennocklodge Road', 'Kingston'),
+('8406', '426246 Test', 'Kingston');
 
 -- --------------------------------------------------------
 
@@ -70,12 +68,10 @@ CREATE TABLE IF NOT EXISTS `participant_info` (
 --
 
 INSERT INTO `participant_info` (`user_id`, `first_name`, `middle_name`, `last_name`, `Gender`, `id_type`, `id_num`, `trn`, `dob`, `phone_num`) VALUES
-('14323', 'Sja', 'qe,ads', '3qe1', 'Gender', '1p3ewsd-kp', '2335245', '1324546', '3-3-1993', '13e32453'),
-('21718', 'passq', 'asofm', 'asfa', 'Gender', '1241', '124142', '1241', '12-24-2012', '1231'),
-('26780', 'Sean', 'Miller', 'mold', 'Gender', 'asfom', '12021', '12413', '', '123142141'),
-('28825', 'Admin ', 'fas', 'wsdg', 'Gender', 'sjkgna', '1243142', '124134131', 'dd-mm-yyyy', '1241515'),
-('855', 'Admin ', 'fas', 'wsdg', 'Gender', 'sjkgna', '1243142', '124134131', 'dd-mm-yyyy', '1241515'),
-('913', 'Yanique', 'wpmw', 'qwsamf', 'Gender', 'sdggslkm', '1213425', '124142', '11-3-1992', '12411209');
+('17566', 'Shane', 'I', 'Campbell', 'Male', 'Passport', '122543521', '122543521', '30-11-1992', '18763931867'),
+('28210', 'Annique', 'K', 'Ashman', 'Female', 'Passport', '14121515', '135151', '30-11-1995', '16585745848'),
+('31833', 'Yanique', 'I', 'Smith', 'Female', 'National ID', '1241512', '151351', '11-05-1982', '1513515'),
+('8406', 'Michelle', 'i', 'Barnett', 'Female', 'Passport', '154153', '1516160', '30-11-1992', '15161617');
 
 -- --------------------------------------------------------
 
@@ -95,7 +91,8 @@ CREATE TABLE IF NOT EXISTS `price` (
 --
 
 INSERT INTO `price` (`chassis_num`, `starting_price`, `end_price`) VALUES
-('KB20914253', '$4,000,000', '$2,000,000');
+('KB20914253', '$4,000,000', '$4,500,000'),
+('KG11106448', '$2,000,000', '$2,500,000');
 
 -- --------------------------------------------------------
 
@@ -109,6 +106,14 @@ CREATE TABLE IF NOT EXISTS `successfull_bids` (
   `payment` varchar(255) NOT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `successfull_bids`
+--
+
+INSERT INTO `successfull_bids` (`chassis_num`, `user_id`, `payment`) VALUES
+('KB20914253', '17566', ''),
+('KG11106448', '28210', '$1,000,000');
 
 -- --------------------------------------------------------
 
@@ -130,19 +135,12 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`user_id`, `email`, `password`, `type`) VALUES
 ('1', 'admin@gmail.com', 'a4TxbGfBrxO3Y', 'admin'),
-('1051', 'shanec132006@hotmail.com', 'a4TxbGfBrxO3Y', 'participant'),
-('10680', 'shanecwqafgsdgr132006@hotmail.', 'a4opOS/h9zup6', 'participant'),
-('14323', 'esdg@gmail.com', 'a4TxbGfBrxO3Y', 'participant'),
-('19042', 'shanecwqr132006@hotmail.com', 'a4Z1gNK1eB/c2', 'participant'),
+('17566', 'shanec132006@hotmail.com', 'a4TxbGfBrxO3Y', 'participant'),
 ('2', 'cashier@gmail.com', 'a4TxbGfBrxO3Y', 'cashier'),
-('20559', 'shanec132006@hotmail.com', 'a4e/O0UzVbfYI', 'participant'),
-('2171', 'shanec132006@hotmail.com', 'a4hrz1MGk3FOE', 'participant'),
-('21718', 'asfmk@gmigl.com', 'a4TxbGfBrxO3Y', 'participant'),
-('26780', 'sam@hotmail.com', 'a4TxbGfBrxO3Y', 'participant'),
-('28825', 'AdminPassword@hotmail.com', 'a4zhojdx8zuCk', 'participant'),
+('28210', 'Annique@hotmail.com', 'a4TxbGfBrxO3Y', 'participant'),
 ('3', 'auctioneer@gmail.com', 'a4TxbGfBrxO3Y', 'auctioneer'),
-('855', 'AdminPassword@hotmail.com', 'a4TxbGfBrxO3Y', 'participant'),
-('913', 'shanocam@hmail.com', 'a48./su.3PeDQ', 'participant');
+('31833', 'Yanique@gmail.com', 'a4TxbGfBrxO3Y', 'participant'),
+('8406', 'michelle@hotmail.com', 'a4TxbGfBrxO3Y', 'participant');
 
 -- --------------------------------------------------------
 
@@ -171,7 +169,8 @@ CREATE TABLE IF NOT EXISTS `vehicle` (
 --
 
 INSERT INTO `vehicle` (`chassis_num`, `Make`, `model`, `year`, `color`, `seating`, `transmission`, `drive_side`, `doors`, `fuel_type`, `cc`, `eng_num`) VALUES
-('KB20914253', 'Mitsubishi ', 'Lancer Evolution X', 2013, 'Black', '4 Seater', 'Manual', 'RHD', '4 Doors', 'Gas', '2000', 'ENG13104950');
+('KB20914253', 'Mitsubishi ', 'Lancer Evolution X', 2013, 'Black', '4 Seater', 'Manual', 'RHD', '4 Doors', 'Gas', '2000', 'ENG13104950'),
+('KG11106448', 'Toyota', 'Belta', 2013, 'Black', '4 Seater', 'Automatic', 'RHD', '4 Doors', 'Gas', '1298', 'KB3085262');
 
 -- --------------------------------------------------------
 
@@ -190,7 +189,10 @@ CREATE TABLE IF NOT EXISTS `vehicle_images` (
 
 INSERT INTO `vehicle_images` (`chassis_num`, `img_url`) VALUES
 ('KB20914253', '../img/car_images/mitsubishi-lancer-8 (1).jpg'),
-('KB20914253', '../img/car_images/mitsubishi-lancer-interior-3.jpg');
+('KB20914253', '../img/car_images/mitsubishi-lancer-interior-3.jpg'),
+('KG11106448', '../img/car_images/7.90249-1f8a471a9e4f9bcdd0c846853262a059.jpg'),
+('KG11106448', '../img/car_images/7.90250_1-a89b795f0b009495dd6c527cdc2f5e4b.jpg'),
+('KG11106448', '../img/car_images/Babylon-pendant.jpg');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

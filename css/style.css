@@ -5,7 +5,10 @@ html{
 	background-attachment: fixed;
 
 }
+.menu{
 
+	background: rgba(0,0,0,.2);
+}
 .container{
 	margin: 0 auto;
 	width: 800px;

@@ -141,5 +141,25 @@ function get_images($num)
 	return $result;
 }
 
+function get_bidderPayment($num){
+	//open a db connection
+	$mysqli = new mysqli(DBHOST, DBUSER, DBPASSWORD, DBNAME);
+	if($mysqli->connect_errno > 0)
+		die('Unable to connect to the database ['.$mysqli->connect_error.']');
+
+	$sql =  "SELECT chassis_num FROM successfull_bids WHERE user_id ='$num'";
+	$resultSet = $mysqli->query($sql);
+	$result= array();
+	if($resultSet!=false)
+	{
+		while($row = $resultSet->fetch_array())
+		{
+			array_push($result, $row);
+		}
+	}
+
+	$mysqli->close();
+	return $result;
+}
 
 ?>

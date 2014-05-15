@@ -29,7 +29,7 @@ if(count($results)!=0)
 			header("location: http://".$_SERVER['SERVER_NAME'].'/auction/vehicles/vehicles.php');
 		}
 		if ($results['type']=='cashier') {
-			header("location: http://".$_SERVER['SERVER_NAME'].'/auction/vehicles/vehicles.php');
+			header("location: http://".$_SERVER['SERVER_NAME'].'/auction/cashier/cashier.php');
 		}
 		
 		exit();
